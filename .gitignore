@@ -1,0 +1,6 @@
+*.ipynb
+*.lnk
+/bat.txt
+/venv
+/model.py
+/__pycache__
