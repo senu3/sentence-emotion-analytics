@@ -1,5 +1,6 @@
 *.ipynb
 *.lnk
+*.json
 /bat.txt
 /venv
 /model.py
