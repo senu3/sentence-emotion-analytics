@@ -316,20 +316,17 @@ if st.session_state.api_result:
         st.plotly_chart(piefig)
     
     with col2:
-        st.markdown('<br><br>', unsafe_allow_html=True)
+        st.markdown('<br><br><br><br>', unsafe_allow_html=True)
         
         # max_labelの各値の出現回数を計算
         label_counts = df['max_label'].value_counts()
         # 最頻値を取得
         mode_labels = df['max_label'].mode()
         
-        mode_df = pd.DataFrame({
-            '最大感情': [df.loc[df['max_score'] == df['max_score'].max(), 'max_label'].iloc[0]],
-            '感情の大きさ':["{:.1f}%".format(df['max_score'].max()*100)],
-            '最頻感情': ['、'.join(mode_labels.tolist())],
-            '最頻感情の登場数':label_counts.iloc[0],
-        })
-        st.dataframe(mode_df.T)
+        st.write('最も大きかった感情：'+ df.loc[df['max_score'] == df['max_score'].max(), 'max_label'].iloc[0])
+        st.write('感情の最大値：'+"{:.1f}%".format(df['max_score'].max()*100))
+        st.write('最も登場した感情：'+ '、'.join(mode_labels.tolist()))
+        st.write('最頻感情の登場数：'+ str(label_counts.iloc[0]))
     
     
     #出力用データテーブルの作成
